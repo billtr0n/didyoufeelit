@@ -1,8 +1,10 @@
 package com.example.didyoufeelit;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -18,6 +20,20 @@ public class MainActivity extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+    
+    public void continueProgram(View view) {
+    	// always need intent
+    	Intent intent = new Intent(this, com.example.didyoufeelit.OpenHoriztonalView.class);
+    	startActivity(intent);
+    }
+    
+    public void closeProgram(View view) {
+    	// Always need intent
+    	Intent intent = new Intent(Intent.ACTION_MAIN);
+    	intent.addCategory(Intent.CATEGORY_HOME);
+    	intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    	startActivity(intent);
     }
     
 }
